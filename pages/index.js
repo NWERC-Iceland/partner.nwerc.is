@@ -154,75 +154,77 @@ export default function Index() {
 
             div.mt-12
               SectionHeader Partner tiers and benefits
-              table#tiers.max-w-4xl.mx-auto
-                thead
-                  tr
-                    th
-                    th
-                      div.text-xl.-mb-1 Gold
-                    th
-                      div.text-xl.-mb-1 Silver
-                    th
-                      div.text-xl.-mb-1 Bronze
-                  tr
-                    th
-                    th.text-lg.font-normal.font-mono.text-green-700 &euro;20,000
-                    th.text-lg.font-normal.font-mono.text-green-700 &euro;10,000
-                    th.text-lg.font-normal.font-mono.text-green-700 &euro;5,000
-                  tr
-                    th
-                    th.font-normal.text-sm.text-gray-700.pb-3 1 available
-                    th.font-normal.text-sm.text-gray-700.pb-3 2 available
-                    th.font-normal.text-sm.text-gray-700.pb-3 3 available
-                tbody
-                  tr
-                    td Exhibit booth
-                    td 30x30
-                    td 20x20
-                    td 10x10
-                  tr
-                    td Logo on website
-                    td
-                      div.check
-                        Check
-                    td
-                      div.check
-                        Check
-                    td
-                      div.check
-                        Check
-                  tr
-                    td Logo on T-shirts and scoreboard
-                    td
-                      div.check
-                        Check
-                    td
-                      div.check
-                        Check
-                    td
-                  tr
-                    td Goodie bag insert
-                    td
-                      div.check
-                        Check
-                    td
-                      div.check
-                        Check
-                    td
-                  tr
-                    td Tech talk
-                    td
-                      div.check
-                        Check
-                    td
-                    td
-                  tr
-                    td Follow-up email to contestants
-                    td
-                      div.check
-                        Check
-                    td
-                    td
+              div.w-full.overflow-y-scroll.px-10
+                table#tiers.max-w-4xl.w-full.mx-auto.relative
+                  div.margin-hack
+                  thead
+                    tr
+                      th
+                      th
+                        div.text-xl.-mb-1 Gold
+                      th
+                        div.text-xl.-mb-1 Silver
+                      th
+                        div.text-xl.-mb-1 Bronze
+                    tr
+                      th
+                      th.text-lg.font-normal.font-mono.text-green-700 &euro;20,000
+                      th.text-lg.font-normal.font-mono.text-green-700 &euro;10,000
+                      th.text-lg.font-normal.font-mono.text-green-700 &euro;5,000
+                    tr
+                      th
+                      th.font-normal.text-sm.text-gray-700.pb-3 1 available
+                      th.font-normal.text-sm.text-gray-700.pb-3 2 available
+                      th.font-normal.text-sm.text-gray-700.pb-3 3 available
+                  tbody
+                    tr
+                      td Exhibit booth
+                      td 30x30
+                      td 20x20
+                      td 10x10
+                    tr
+                      td Logo on website
+                      td
+                        div.check
+                          Check
+                      td
+                        div.check
+                          Check
+                      td
+                        div.check
+                          Check
+                    tr
+                      td Logo on T-shirts and scoreboard
+                      td
+                        div.check
+                          Check
+                      td
+                        div.check
+                          Check
+                      td
+                    tr
+                      td Goodie bag insert
+                      td
+                        div.check
+                          Check
+                      td
+                        div.check
+                          Check
+                      td
+                    tr
+                      td Tech talk
+                      td
+                        div.check
+                          Check
+                      td
+                      td
+                    tr
+                      td Follow-up email to contestants
+                      td
+                        div.check
+                          Check
+                      td
+                      td
 
             div.mt-12
               SectionHeader A la carte opportunities
