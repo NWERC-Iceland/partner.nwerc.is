@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+
+#tiers {
+  @apply w-full;
+}
+
+#tiers thead, #tiers tbody tr {
+  @apply border-b;
+}
+
+#tiers td {
+  @apply text-center px-4 py-3;
+}
+
+#tiers td .check {
+  @apply h-8 w-8 mx-auto stroke-current fill-current text-green-600;
+}
+
+#tiers td:first-child {
+  @apply text-left;
+}
+
+#tiers td {
+  @apply text-lg;
+}
+
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.foreground, .background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.background {
+  transform: translateZ(-1px) scale(2);
+  margin-left: -10px;
+}
+
+.foreground {
+  transform: translateZ(0);
+}
+
+/*
+.background, .foreground {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  transform-origin-x: 100%;
+}
+.background {
+  transform: translateZ(-2px) scale(4);
+}
+.foreground {
+  transform: translateZ(0);
+}
+*/
+
+@tailwind utilities;
