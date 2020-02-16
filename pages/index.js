@@ -154,7 +154,7 @@ export default function Index() {
 
             div.mt-12
               SectionHeader Partner tiers and benefits
-              div.w-full.overflow-y-scroll.px-10
+              div.w-full.overflow-x-auto.px-10
                 table#tiers.max-w-4xl.w-full.mx-auto.relative
                   div.margin-hack
                   thead
