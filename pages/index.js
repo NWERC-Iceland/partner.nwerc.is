@@ -119,16 +119,23 @@ and take part in the actual contest.
 // Tech talk (1 available)
 // Follow up email (1 available)
 
-export default function Index() {
-  return pug`
+class Index extends React.Component {
+  componentDidMount() {
+    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    document.body.className += " " + (iOS ? "ios" : "non-ios");
+  }
+
+  render() {
+    return pug`
     div.parallax.text-gray-900
       div.background
         div.pt-64.sm_pt-128.pb-56.sm_pb-32.bg-center.bg-cover(style={ backgroundImage: 'url(/images/banner_small.png)' })
-      div.foreground.mt-64.sm_mt-128
-        div.h-56.sm_h-32(style={ backgroundColor: 'rgba(0,0,0,0.5)' })
+      div.foreground
+        div#header.h-56.sm_h-32(style={ backgroundColor: 'rgba(0,0,0,0.5)' })
           div.container.m-auto.flex.sm_flex-row.flex-col.items-center.justify-center.h-full
-            img.mx-auto.sm_mx-0.h-20(src="/images/nwerc-2020-logo-white.png")
-            h1.sm_ml-8.text-3xl.text-gray-200.font-bold.text-center.sm_text-left.mt-3.sm_mt-0 Partnership opportunities
+            img.mx-auto.sm_mx-0.sm_ml-10.h-20(src="/images/nwerc-2020-logo-white.png")
+            h1.sm_ml-8.text-3xl.text-gray-200.font-bold.text-center.sm_text-left.mt-3.sm_mt-0.mx-10.sm-mr-0 Partnership opportunities
+
 
         div.bg-gray-100.pt-6
           div.container.m-auto
@@ -257,4 +264,7 @@ export default function Index() {
               SectionHeader Get in touch
               span TODO
 `;
+  }
 }
+
+export default Index;

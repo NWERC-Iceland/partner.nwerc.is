@@ -29,14 +29,14 @@
   @apply w-10;
 }
 
-.parallax {
+.non-ios .parallax {
   perspective: 1px;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
-.foreground, .background {
+.non-ios .foreground, .non-ios .background {
   position: absolute;
   top: 0;
   right: 0;
@@ -44,31 +44,35 @@
   left: 0;
 }
 
-.background {
+.non-ios .background {
   transform: translateZ(-1px) scale(2);
   margin-left: -10px;
 }
 
-.foreground {
+.non-ios .foreground {
+  @apply mt-64;
   transform: translateZ(0);
 }
 
-/*
-.background, .foreground {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+#header {
+  @apply -mt-56;
+}
+.non-ios #header {
+  @apply mt-0;
+}
 
-  transform-origin-x: 100%;
+@screen sm {
+  .non-ios .foreground {
+    @apply mt-128;
+  }
+
+  #header {
+    @apply -mt-32;
+  }
+
+  .non-ios #header {
+    @apply mt-0;
+  }
 }
-.background {
-  transform: translateZ(-2px) scale(4);
-}
-.foreground {
-  transform: translateZ(0);
-}
-*/
 
 @tailwind utilities;
