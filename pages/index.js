@@ -170,7 +170,7 @@ export default function Index() {
                       th
                       th.text-lg.font-normal.font-mono.text-green-700 &euro;20,000
                       th.text-lg.font-normal.font-mono.text-green-700 &euro;10,000
-                      th.text-lg.font-normal.font-mono.text-green-700 &euro;5,000
+                      th.text-lg.font-normal.font-mono.text-green-700 &euro;3,000
                     tr
                       th
                       th.font-normal.text-sm.text-gray-700.pb-3 1 available
