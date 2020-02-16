@@ -1,12 +1,12 @@
 @tailwind base;
 @tailwind components;
 
-#tiers {
-  /* @apply w-full; */
+#tiers thead tr:last-child th, #tiers tbody tr td {
+  @apply border-b;
 }
 
-#tiers thead, #tiers tbody tr {
-  @apply border-b;
+#tiers thead tr:last-child th.pad, #tiers tbody tr td.pad {
+  @apply border-b-0;
 }
 
 #tiers td {
@@ -17,7 +17,7 @@
   @apply h-8 w-8 mx-auto stroke-current fill-current text-green-600;
 }
 
-#tiers td:first-child {
+#tiers td.title {
   @apply text-left;
 }
 
@@ -25,10 +25,8 @@
   @apply text-lg;
 }
 
-.margin-hack {
-  left: 100%;
-  height: 1px;
-  @apply absolute w-10;
+#tiers .pad {
+  @apply w-10;
 }
 
 .parallax {
