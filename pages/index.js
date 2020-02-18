@@ -36,9 +36,15 @@ const CallingCard = (props) => pug`
 const tier_rows = [
   {
     title: "Company booth",
-    gold: "Large",
-    silver: "Medium",
-    bronze: "Medium",
+    gold: pug`
+      span.text-gray-700.text-xs.font-bold.uppercase.tracking-wide Large
+    `,
+    silver: pug`
+      span.text-gray-700.text-xs.font-bold.uppercase.tracking-wide Medium
+    `,
+    bronze: pug`
+      span.text-gray-700.text-xs.font-bold.uppercase.tracking-wide Medium
+    `,
     info: {
       title: 'Company booth',
       limit: null,
@@ -320,18 +326,19 @@ class Index extends React.Component {
                     each tier_row in tier_rows
                       tr
                         td.pad
-                        td.title.info-wrapper.flex
-                          if tier_row.info
-                            div.info.max-w-xs.lg_max-w-lg
-                              Opportunity(key=tier_row.info.title,
-                                          title=tier_row.info.title,
-                                          limit=tier_row.info.limit,
-                                          description=tier_row.info.description,
-                                          image=tier_row.info.image)
-                          span= tier_row.title
-                          if tier_row.info
-                            svg.fill-current.w-4.min-w-4.ml-2.text-gray-700(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24")
-                              path(d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM10.59 8.59a1 1 0 1 1-1.42-1.42 4 4 0 1 1 5.66 5.66l-2.12 2.12a1 1 0 1 1-1.42-1.42l2.12-2.12A2 2 0 0 0 10.6 8.6zM12 18a1 1 0 1 1 0-2 1 1 0 0 1 0 2z")
+                        td.title.info-wrapper
+                          div.min-w-64
+                            if tier_row.info
+                              div.info.max-w-xs.lg_max-w-lg
+                                Opportunity(key=tier_row.info.title,
+                                            title=tier_row.info.title,
+                                            limit=tier_row.info.limit,
+                                            description=tier_row.info.description,
+                                            image=tier_row.info.image)
+                            span= tier_row.title
+                            if tier_row.info
+                              svg.fill-current.w-4.min-w-4.ml-2.text-gray-700.inline-block(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24")
+                                path(d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM10.59 8.59a1 1 0 1 1-1.42-1.42 4 4 0 1 1 5.66 5.66l-2.12 2.12a1 1 0 1 1-1.42-1.42l2.12-2.12A2 2 0 0 0 10.6 8.6zM12 18a1 1 0 1 1 0-2 1 1 0 0 1 0 2z")
                         td= tier_row.gold
                         td= tier_row.silver
                         td= tier_row.bronze
@@ -355,14 +362,14 @@ class Index extends React.Component {
               p.w-1_2.text-center.mx-auto.mb-4.text-lg.text-gray-800.
                 Have any questions, or ready to become a partner? Let us know!
               
-          div.mt-10.pt-10.bg-gray-800
+          div.mt-10.pt-12.pb-2.bg-gray-800
             div.container.mx-auto.flex.flex-col.items-center.lg_flex-row.lg_justify-center.lg_items-start
               CallingCard(name="Bjarki Ágúst Guðmundsson",
                           email="bjarki.agust@gmail.com",
                           phone="+354 821-6233")
               CallingCard(name="Unnar Freyr Erlendsson",
                           email="unnar@google.com",
-                          phone=null)
+                          phone="+49 162 720 0579")
 
 `;
   }

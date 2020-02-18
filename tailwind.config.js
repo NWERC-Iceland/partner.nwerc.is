@@ -32,6 +32,7 @@ module.exports = {
       minWidth: {
         '4': '1rem',
         '6': '1.5rem',
+        '64': '16rem',
       },
       spacing: {
         '80': '20rem',
