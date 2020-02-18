@@ -1,6 +1,11 @@
 @tailwind base;
 @tailwind components;
 
+.underline-dotted {
+  @apply underline;
+  text-decoration-style: dashed;
+}
+
 #tiers thead tr:last-child th, #tiers tbody tr td {
   @apply border-b;
 }
@@ -73,6 +78,30 @@
   .non-ios #header {
     @apply mt-0;
   }
+}
+
+.info-wrapper {
+  position: relative;
+}
+.info {
+  @apply ease-out;
+  position: fixed;
+  z-index: 10;
+  transition: 0.2s;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(0, -100%);
+  margin-top: -0.8rem;
+  margin-left: -2rem;
+}
+@screen sm {
+  .info {
+    margin-left: -4rem;
+  }
+}
+.info-wrapper:hover .info:not(:hover) {
+  visibility: visible;
+  opacity: 1;
 }
 
 @tailwind utilities;

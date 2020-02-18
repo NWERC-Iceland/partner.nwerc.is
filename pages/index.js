@@ -4,8 +4,9 @@ import Opportunity from '../components/Opportunity.js';
 import "../styles/index.css";
 
 const Check = () => pug`
-  svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20")
-    path(d="M8.294 16.998c-.435 0-.847-.203-1.111-.553L3.61 11.724a1.392 1.392 0 01.27-1.951 1.392 1.392 0 011.953.27l2.351 3.104 5.911-9.492a1.396 1.396 0 011.921-.445c.653.406.854 1.266.446 1.92L9.478 16.34a1.39 1.39 0 01-1.12.656c-.022.002-.042.002-.064.002z")
+  div.check
+    svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20")
+      path(d="M8.294 16.998c-.435 0-.847-.203-1.111-.553L3.61 11.724a1.392 1.392 0 01.27-1.951 1.392 1.392 0 011.953.27l2.351 3.104 5.911-9.492a1.396 1.396 0 011.921-.445c.653.406.854 1.266.446 1.92L9.478 16.34a1.39 1.39 0 01-1.12.656c-.022.002-.042.002-.064.002z")
 `;
 
 const SectionHeader = (props) => pug`
@@ -13,76 +14,203 @@ const SectionHeader = (props) => pug`
   hr.w-64.mx-auto.mb-8
 `;
 
-const opportunities = [
+const CallingCard = (props) => pug`
+  div.pb-10.text-gray-200.mx-8.w-80.-mr-2
+    if props.name
+      div.flex.my-3
+        svg.w-6.min-w-6.fill-current(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24")
+          path(d="M12 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9 11a1 1 0 0 1-2 0v-2a3 3 0 0 0-3-3H8a3 3 0 0 0-3 3v2a1 1 0 0 1-2 0v-2a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v2z")
+        span.ml-3.text-xl.tracking-tight= props.name
+    if props.email
+      div.flex.my-3
+        svg.w-6.min-w-6.fill-current(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24")
+          path(d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2zm16 3.38V6H4v1.38l8 4 8-4zm0 2.24l-7.55 3.77a1 1 0 0 1-.9 0L4 9.62V18h16V9.62z")
+        a.ml-3.text-lg.text-color-gray-400.tracking-tighter.border-b.border-dotted.hover_border-solid(href="mailto:" + props.email)= props.email
+    if props.phone
+      div.flex.my-3
+        svg.w-6.min-w-6.fill-current(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24")
+          path(d="M8 2h8a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2zm0 2v16h8V4H8zm4 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2z")
+        a.ml-3.text-lg.text-color-gray-400.tracking-tighter.border-b.border-dotted.hover_border-solid(href="tel:" + props.phone)= props.phone
+`;
+
+const tier_rows = [
   {
-    title: 'Company visit',
-    limit: 'limited',
-    description: `
-      After the practice contest attendees are off to excursions. Invite the
-      contestants to your office and show them what is so great about working at
-      your company.
-    `,
-    image: '/images/company-visit.png'
+    title: "Company booth",
+    gold: "Large",
+    silver: "Medium",
+    bronze: "Medium",
+    info: {
+      title: 'Company booth',
+      limit: null,
+      description: `
+Mingle with the contestants on the event location and show them what's so
+awesome about your company, and why they should come work for you!
+  `,
+      image: '/images/booth.png'
+    }
   },
   {
-    title: 'Lanyards',
-    limit: 1,
-    description: `
+    title: "Logo in event material",
+    gold: Check(),
+    silver: Check(),
+    bronze: Check(),
+    info: {
+      title: 'Logo in event material',
+      limit: null,
+      description: `
+As an official partner your logo will be featured on our website, and in related event material.
+      `,
+      image: '/images/partners.png'
+    }
+  },
+  {
+    title: "Logo on T-shirts",
+    gold: Check(),
+    silver: Check(),
+    bronze: null,
+    info: {
+      title: 'Logo on T-shirts',
+      limit: null,
+      description: `
+All attendees receive their branded T-shirts
+upon registering and will continue to wear
+them throughout the event! Show your
+support through one of the most seen sponsored
+pieces within the event.
+      `,
+      image: '/images/shirts.png'
+    }
+  },
+  // {
+  //   title: "Logo on scoreboard",
+  //   gold: Check(),
+  //   silver: Check(),
+  //   bronze: null,
+  //   info: null
+  // },
+  {
+    title: "Goodie bag insert",
+    gold: Check(),
+    silver: Check(),
+    bronze: null,
+    info: {
+      title: 'Goodie bag insert',
+      limit: null,
+      description: `
+All attendees receive their goodie bag upon registering. Give them a pamphlet
+and a fun little item to bring home to keep them reminded of you.
+      `,
+      image: '/images/toy.png'
+    }
+  },
+  {
+    title: "Tech talk",
+    gold: Check(),
+    silver: null,
+    bronze: null,
+    info: {
+      title: 'Tech talk',
+      limit: null,
+      description: `
+Go in-depth about the coolest projects your company works on. Leave the
+attendees with stars in their eyes by giving this year's Tech talk!
+      `,
+      image: '/images/talk.png'
+    }
+  },
+  {
+    title: "Follow-up email to contestants",
+    gold: Check(),
+    silver: null,
+    bronze: null,
+    info: {
+      title: 'Follow-up email to contestants',
+      limit: null,
+      description: `
+Finish off your recruitment campaign with a custom email sent out to all contestants after they've returned back home.
+      `,
+      image: '/images/thinking.png'
+    }
+  },
+  {
+    title: "Lanyard branding",
+    gold: Check(),
+    silver: null,
+    bronze: null,
+    info: {
+      title: 'Lanyards',
+      limit: null,
+      description: `
 All attendees receive their name badges on
 lanyards upon registering and will continue to wear
 them throughout the event! Show your
 support through one of the most seen sponsored
 pieces within the event.
-    `,
-    image: '/images/lanyards.png'
+      `,
+      image: '/images/lanyards.png'
+    }
   },
   {
-    title: 'Balloons',
-    limit: 1,
-    description: `
+    title: "Balloon branding",
+    gold: Check(),
+    silver: null,
+    bronze: null,
+    info: {
+      title: 'Balloons',
+      limit: null,
+      description: `
 Teams receive a colored balloon for every problem they solve, creating a
 stunning visual effect on the venue during the competition. Get your logo on
 each of the balloons to become part of this unique experience.
-    `,
-    image: '/images/balloons.png'
+      `,
+      image: '/images/balloons.png'
+    }
   },
+  {
+    title: "Workstation branding",
+    gold: Check(),
+    silver: null,
+    bronze: null,
+    info: {
+      title: 'Workstation branding',
+      limit: null,
+      description: `
+During the competition, teams will spend most of their time on their
+assigned workstations. Make your company stand out during the contest with your
+company logo as the desktop wallpaper on each workstation.
+      `,
+      image: '/images/computer.png'
+    }
+  },
+];
+
+const opportunities = [
   {
     title: 'Excursion',
     limit: 'limited',
     description: `
-TODO: Something about sponsoring an excursion
+After the practice contest attendees have free time. Invite them on an
+excursion and show them a good time, with your company in the spotlight.
     `,
     image: '/images/excursion.png'
   },
   {
-    title: 'Event banquet',
-    limit: 1,
+    title: 'Company visit',
+    limit: 'limited',
     description: `
-TODO: Something about sponsoring the dinner
+       Host your own excursion! Invite the contestants to your office and
+       show them what is so great about working at your company.
+    `,
+    image: '/images/company-visit.png'
+  },
+  {
+    title: 'Event banquet',
+    limit: 'exclusive',
+    description: `
+Host the exclusive event banquet, welcoming attendees with a speech and
+accompanying branding. Your company's generosity will not go unnoticed.
     `,
     image: '/images/banquet.png'
-  },
-//  {
-//    title: 'Video recording',
-//    limit: 1,
-//    description: `
-//Extend your presence long after the live event
-//concludes with this video recording sponsorship.
-//This sponsor will be recognized for providing
-//recordings of the  for attendees to
-//review and reference post-conference.
-//    `,
-//    image: '/images/banquet.png'
-//  },
-  {
-    title: 'Desktop background',
-    limit: 1,
-    description: `
-During the competition, teams will spend most of their time on their
-assigned workstations. Make your company stand out during the contest with your
-company logo as the desktop wallpaper on each workstation.
-    `,
-    image: '/images/computer.png'
   },
   {
     title: 'Sponsored task',
@@ -95,14 +223,6 @@ the teams' minds while they solve your task.
     image: '/images/math.png'
   },
   {
-    title: 'Exhibit booth',
-    limit: 'limited',
-    description: `
-TODO: Booth
-    `,
-    image: '/images/booth.png'
-  },
-  {
     title: 'Company team',
     limit: 'limited',
     description: `
@@ -112,12 +232,15 @@ and take part in the actual contest.
     `,
     image: '/images/company-team.png'
   },
+  {
+    title: 'New in 2020',
+    limit: null,
+    description: pug`
+    p Want to do something different? Get in touch &mdash; we would be happy to hear you out!
+    `,
+    image: '/images/balloon_cluster.png'
+  },
 ];
-
-// Website logo
-// Scoreboard logo
-// Tech talk (1 available)
-// Follow up email (1 available)
 
 class Index extends React.Component {
   componentDidMount() {
@@ -161,8 +284,13 @@ class Index extends React.Component {
 
             div.mt-12
               SectionHeader Partner tiers and benefits
+              p.w-1_2.text-center.mx-auto.mb-10.text-md.text-gray-800.
+                Choose a partnership tier with exposure ranging
+                from a company booth to owning the event, giving the tech
+                talk, along with accompanying event branding.
+
               div.overflow-x-auto
-                table#tiers.max-w-4xl.w-full.mx-auto
+                table#tiers.max-w-4xl.w-full.mx-auto.mb-10
                   thead
                     tr
                       th.pad
@@ -189,69 +317,31 @@ class Index extends React.Component {
                       th.font-normal.text-sm.text-gray-700.pb-3 3 available
                       th.pad
                   tbody
-                    tr
-                      td.pad
-                      td.title Exhibit booth
-                      td 30x30
-                      td 20x20
-                      td 10x10
-                      td.pad
-                    tr
-                      td.pad
-                      td.title Logo on website
-                      td
-                        div.check
-                          Check
-                      td
-                        div.check
-                          Check
-                      td
-                        div.check
-                          Check
-                      td.pad
-                    tr
-                      td.pad
-                      td.title Logo on T-shirts and scoreboard
-                      td
-                        div.check
-                          Check
-                      td
-                        div.check
-                          Check
-                      td
-                      td.pad
-                    tr
-                      td.pad
-                      td.title Goodie bag insert
-                      td
-                        div.check
-                          Check
-                      td
-                        div.check
-                          Check
-                      td
-                      td.pad
-                    tr
-                      td.pad
-                      td.title Tech talk
-                      td
-                        div.check
-                          Check
-                      td
-                      td
-                      td.pad
-                    tr
-                      td.pad
-                      td.title Follow-up email to contestants
-                      td
-                        div.check
-                          Check
-                      td
-                      td
-                      td.pad
+                    each tier_row in tier_rows
+                      tr
+                        td.pad
+                        td.title.info-wrapper.flex
+                          if tier_row.info
+                            div.info.max-w-xs.lg_max-w-lg
+                              Opportunity(key=tier_row.info.title,
+                                          title=tier_row.info.title,
+                                          limit=tier_row.info.limit,
+                                          description=tier_row.info.description,
+                                          image=tier_row.info.image)
+                          span= tier_row.title
+                          if tier_row.info
+                            svg.fill-current.w-4.min-w-4.ml-2.text-gray-700(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24")
+                              path(d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM10.59 8.59a1 1 0 1 1-1.42-1.42 4 4 0 1 1 5.66 5.66l-2.12 2.12a1 1 0 1 1-1.42-1.42l2.12-2.12A2 2 0 0 0 10.6 8.6zM12 18a1 1 0 1 1 0-2 1 1 0 0 1 0 2z")
+                        td= tier_row.gold
+                        td= tier_row.silver
+                        td= tier_row.bronze
+                        td.pad
 
             div.mt-12
               SectionHeader A la carte opportunities
+              p.w-1_2.text-center.mx-auto.mb-4.text-lg.text-gray-800.
+                Pick and choose from these additional opportunities.
+
               div.grid.grid-cols-1.sm_grid-cols-2.md_grid-cols-3.lg_grid-cols-2.gap-6.py-6.px-6.sm_px-0.mx-6
                 each opp in opportunities
                   Opportunity(key=opp.title,
@@ -262,7 +352,18 @@ class Index extends React.Component {
 
             div.mt-12
               SectionHeader Get in touch
-              span TODO
+              p.w-1_2.text-center.mx-auto.mb-4.text-lg.text-gray-800.
+                Have any questions, or ready to become a partner? Let us know!
+              
+          div.mt-10.pt-10.bg-gray-800
+            div.container.mx-auto.flex.flex-col.items-center.lg_flex-row.lg_justify-center.lg_items-start
+              CallingCard(name="Bjarki Ágúst Guðmundsson",
+                          email="bjarki.agust@gmail.com",
+                          phone="+354 821-6233")
+              CallingCard(name="Unnar Freyr Erlendsson",
+                          email="unnar@google.com",
+                          phone=null)
+
 `;
   }
 }

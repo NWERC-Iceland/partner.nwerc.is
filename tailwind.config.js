@@ -29,7 +29,12 @@ module.exports = {
         '10_12': '83.333333%',
         '11_12': '91.666667%',
       },
+      minWidth: {
+        '4': '1rem',
+        '6': '1.5rem',
+      },
       spacing: {
+        '80': '20rem',
         '128': '32rem',
       },
     },
@@ -42,8 +47,17 @@ module.exports = {
       'default': '0 2px 5px rgba(0, 0, 0, 0.1)',
       'lg': '0 2px 10px rgba(0, 0, 0, 0.5)',
     },
+    screens: {
+      'xsm': '400px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+    }
   },
-  variants: {},
+  variants: {
+    borderStyle: ['responsive', 'hover', 'focus'],
+  },
   plugins: [
     require('tailwindcss-typography'),
   ],
