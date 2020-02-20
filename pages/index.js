@@ -311,20 +311,13 @@ class Index extends React.Component {
                     tr
                       th.pad
                       th
-                      th.text-lg.font-normal.font-mono.text-green-700 &euro;20,000
-                      th.text-lg.font-normal.font-mono.text-green-700 &euro;10,000
-                      th.text-lg.font-normal.font-mono.text-green-700 &euro;3,000
-                      th.pad
-                    tr
-                      th.pad
-                      th
                       th.font-normal.text-sm.text-gray-700.pb-3 1 available
                       th.font-normal.text-sm.text-gray-700.pb-3 2 available
-                      th.font-normal.text-sm.text-gray-700.pb-3 3 available
+                      th.font-normal.text-sm.text-gray-700.pb-3 Limited availability
                       th.pad
                   tbody
                     each tier_row in tier_rows
-                      tr
+                      tr(key=tier_row.title)
                         td.pad
                         td.title.info-wrapper
                           div.min-w-64
@@ -337,7 +330,7 @@ class Index extends React.Component {
                                             image=tier_row.info.image)
                             span= tier_row.title
                             if tier_row.info
-                              svg.fill-current.w-4.min-w-4.ml-2.text-gray-700.inline-block(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24")
+                              svg.fill-current.w-4.min-w-4.ml-2.text-blue-700.inline-block(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24")
                                 path(d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM10.59 8.59a1 1 0 1 1-1.42-1.42 4 4 0 1 1 5.66 5.66l-2.12 2.12a1 1 0 1 1-1.42-1.42l2.12-2.12A2 2 0 0 0 10.6 8.6zM12 18a1 1 0 1 1 0-2 1 1 0 0 1 0 2z")
                         td= tier_row.gold
                         td= tier_row.silver
