@@ -264,9 +264,6 @@ class Index extends React.Component {
       link(rel="apple-touch-icon-precomposed" href="/images/favicon_large.png")
       meta(name="msapplication-TileImage" content="/images/favicon_large.png")
 
-      script(async="async", src="https://www.googletagmanager.com/gtag/js?id=UA-158843170-1")
-      script(src="/scripts/analytics.js")
-
     div.parallax.text-gray-900
       div.background
         div.pt-64.sm_pt-128.pb-56.sm_pb-32.bg-center.bg-cover(style={ backgroundImage: 'url(/images/banner_small.png)' })
