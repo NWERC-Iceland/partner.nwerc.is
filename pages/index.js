@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Opportunity from '../components/Opportunity.js';
+import Head from 'next/head';
 
 import "../styles/index.css";
 
@@ -256,6 +257,13 @@ class Index extends React.Component {
 
   render() {
     return pug`
+    Head
+      title NWERC Partnership opportunities
+      link(rel="icon" href="/images/favicon_small.png" sizes="32x32")
+      link(rel="icon" href="/images/favicon_large.png" sizes="192x192")
+      link(rel="apple-touch-icon-precomposed" href="/images/favicon_large.png")
+      meta(name="msapplication-TileImage" content="/images/favicon_large.png")
+
     div.parallax.text-gray-900
       div.background
         div.pt-64.sm_pt-128.pb-56.sm_pb-32.bg-center.bg-cover(style={ backgroundImage: 'url(/images/banner_small.png)' })
