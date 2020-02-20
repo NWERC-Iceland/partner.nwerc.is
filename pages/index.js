@@ -243,7 +243,7 @@ and take part in the actual contest.
     title: 'New in 2020',
     limit: null,
     description: pug`
-    p Want to do something different? Get in touch &mdash; we would be happy to hear you out!
+    span Want to do something different? Get in touch &mdash; we would be happy to hear you out!
     `,
     image: '/images/balloon_cluster.png'
   },
@@ -265,12 +265,7 @@ class Index extends React.Component {
       meta(name="msapplication-TileImage" content="/images/favicon_large.png")
 
       script(async="async", src="https://www.googletagmanager.com/gtag/js?id=UA-158843170-1")
-      script.
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-158843170-1');
+      script(src="/scripts/analytics.js")
 
     div.parallax.text-gray-900
       div.background
